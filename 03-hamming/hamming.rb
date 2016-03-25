@@ -1,8 +1,13 @@
 class Hamming
-  # when two identical arguments are given, result == 0
   def self.compute(a, b)
-    if a == b
-      return 0
+    diff = 0
+    index = 0
+    a.each_char do |letter|
+      if letter != b[index]
+        diff += 1
+      end
+      index += 1
     end
+    diff
   end
 end
