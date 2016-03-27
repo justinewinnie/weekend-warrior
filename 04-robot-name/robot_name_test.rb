@@ -18,7 +18,6 @@ class RobotTest < Minitest::Test
   end
 
   def test_name_sticks
-    skip
     robot = Robot.new
     name  = robot.name
 
@@ -27,20 +26,18 @@ class RobotTest < Minitest::Test
   end
 
   def test_different_robots_have_different_names
-    skip
     # there is a very, very small probability of name collision here
     # ensuring the name is globally unique is beyond the scope of this exercise
     refute_equal Robot.new.name, Robot.new.name
   end
 
   def test_reset_name
-    skip
     robot = Robot.new
     name = robot.name
 
     robot.reset
     name2 = robot.name
-    
+
     assert name != name2
     assert_equal name2, robot.name, COMMAND_QUERY
     assert_match NAME_REGEXP, name2
